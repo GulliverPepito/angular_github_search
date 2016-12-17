@@ -1,0 +1,21 @@
+<a href="/repo/{{ repo.owner.login }}/{{ repo.name }}" ng-repeat="repo in repos" class="row repo-listing">
+  <div class="col-md-1 repo-index">
+    <img ng-src="{{ repo.owner.avatar_url }}" class="repo-avatar" />
+  </div>
+  <div class="col-md-11 repo-details">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>{{ repo.full_name }}</h2>
+        <strong>{{ repo.html_url }}</strong>
+      </div>
+      <div class="col-md-2 repo-status-count">
+        <strong class="count">{{ repo.watchers_count }}</strong>
+        Watchers
+      </div>
+      <div class="col-md-2 repo-status-count">
+        <strong class="count">{{ repo.forks_count }}</strong>
+        Forks
+      </div>
+    </div>
+  </div>
+</a>

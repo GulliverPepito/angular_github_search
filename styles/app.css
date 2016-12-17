@@ -1,0 +1,157 @@
+#header {
+  background:#eee;
+  box-shadow:0 0 10px #999;
+} 
+
+#searcher {
+  width:100%;
+  background:none;
+  border:0;
+  box-sizing:border-box;
+  font-size:40px;
+  padding:10px;
+  border-radius:10px;
+}
+
+#searcher:focus {
+  color:blue;
+  background:white;
+  outline:0;
+}
+
+.repo-avatar,
+.repo-listing:hover {
+  background:#eee;
+}
+
+.repo-listing + .repo-listing {
+  border-top:1px solid #ddd;
+}
+
+.repo-status-count {
+  border:5px solid white;
+  background:#eee;
+  text-align:center;
+  padding:20px;
+}
+
+.repo-status-count .count {
+  font-size:30px;
+  display:block;
+}
+
+#history {
+  background:#ddd;
+  font-size:20px;
+  padding:5px;
+}
+
+.history-home-item,
+.history-item {
+  padding:5px;
+  display:inline-block;
+  border-radius:5px;
+}
+
+.history-home-item {
+ background:#eee; 
+}
+
+.user-avatar-list-item {
+  display:inline-block;
+}
+
+.repo-avatar,
+.user-avatar {
+  max-width:80px;
+}
+
+#wrapper {
+}
+
+.focus-avatar.other {
+  -webkit-filter: grayscale(100%);
+}
+
+.focus-avatar.other-add-stagger {
+  -webkit-transition-delay:0.5s;
+}
+
+.focus-avatar.other-add,
+.focus-avatar.other-remove {
+  -webkit-transition:1s linear all;
+}
+
+.focus-avatar.other-add-active,
+.focus-avatar.other {
+  outline:2px solid red;
+  -webkit-filter: grayscale(100%);
+}
+
+.focus-avatar.other-remove-active {
+  outline:0;
+  -webkit-filter: grayscale(0%);
+}
+
+.user-avatar.other {
+  -webkit-filter: grayscale(100%);
+}
+
+.panel {
+  padding:20px 0;
+}
+
+.container {
+  padding:10px 5%;
+}
+
+#body {
+  position:relative;
+  padding:10px 0;
+  min-height:800px;
+}
+
+pre {
+  background:none;
+  padding:0;
+  border:0;
+}
+
+.sub-nav, .collab-nav {
+  margin-bottom:20px;
+}
+
+.sub-nav-search {
+  float:right;
+}
+
+.search-input {
+  border:0;
+  background:#eee;
+  font-size:20px;
+  padding:3px;
+  border-radius:10px;
+}
+
+.listing-item:nth-child(even) {
+  background:#eee;
+}
+
+.listing-item {
+  border-bottom:1px solid #ddd;
+  padding:1em;
+  background:white;
+}
+
+.repo-listing {
+  display:block;
+}
+
+.slide-container {
+  min-height:500px;
+  position:relative;
+  overflow:hidden;
+}
+.slide-container .slide {
+  position:absolute;
+}

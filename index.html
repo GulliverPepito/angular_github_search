@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html data-ng-app="myApp">
+  <head>
+    <title>ngConf - Github</title>
+    <link rel="stylesheet" type="text/css" href="styles/app.css" />
+	<!-- Include the core AngularJS library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<!-- Include the AngularJS routing library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+	<!-- Include the AngularJS animation library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div ng-controller="HistoryCtrl" id="history">
+        <div class="container">
+          <a href="/" class="history-home-item">Home</a> |
+          <a href="/repo/{{ item.full_name }}" ng-repeat="item in history.list() | itemHistory" class="history-item">{{ item.full_name }}</a>
+        </div>
+      </div>
+      <div ng-controller="StatusCtrl">
+        <div ng-if="rateExceeded">
+          You have exceeded your GH download rate
+        </div>
+      </div>
+      <header id="header" ng-controller="SearchCtrl">
+        <div class="container">
+          <input id="searcher" ng-change="search(q)" ng-model="q" ng-class="{search:isSearch}" placeholder="Search for anything on Github" />
+        </div>
+      </header> 
+      <main id="body" ng-controller="StageCtrl">
+        <div ng-show="loadingRoute" class="loading-frame">
+          <i class="fa fa-spinner fa-spin loading-icon"></i>   
+        </div>
+        <div class="container">
+          <div ng-view class="view-item"></div>
+        </div>
+      </main>
+    </div>
+    <script src="scripts/app.js"></script>
+	<script src="scripts/animations.js"></script>
+	<script src="scripts/base64.js"></script>
+	<script src="scripts/base64codec.js"></script>
+	<script src="scripts/gh-api.js"></script>
+	<script src="scripts/homePages.js"></script>
+  <body>
+</html>

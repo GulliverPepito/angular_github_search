@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-7" sub-nav-component sub-nav-index-template="repo-readme">
+    <nav class="sub-nav">
+      <a href="{{ '/repo/'+repo.owner.login+'/'+repo.name+'/readme'  }}" class="btn btn-default" ng-class="{'btn-primary':selected=='index'}">
+        README
+      </a>&nbsp;&nbsp;
+      <a href="#commits" class="btn btn-default" ng-class="{'btn-primary':selected=='commits'}">
+        Commits
+      </a>&nbsp;&nbsp;
+      <a href="#pullRequests" class="btn btn-default" ng-class="{'btn-primary':selected=='pull-requests'}">
+        Pull Requests
+      </a>&nbsp;&nbsp;
+      <a href="#issues" class="btn btn-default" ng-class="{'btn-primary':selected=='issues'}">
+        Issues
+      </a>
+      <input type="search" ng-model="q" class="sub-nav-search search-input" placeholder="search" ng-show="selected!='index'" />
+    </nav>
+
+	<div ng-switch="selected" class="slide-container">
+	<div class="col-md-4 repo-status-count">
+		<a name="commits">Commits</a> 
+        <strong class="count">{{ ::commits.length }}</strong>
+    </div>
+
+	
+	<div ng-repeat="comm in commits | filter:q" class="commit-item listing-item">
+          <h4>{{ comm.commit.message }}</h4>
+          <p>{{ comm.sha }}</p>
+    </div>
+	</div>
+	
+	<div ng-switch="selected" class="slide-container">
+	<div class="col-md-4 repo-status-count">
+		<a name="pullRequests">Pull Requests</a> 
+        <strong class="count">{{ ::pullRequests.length }}</strong>
+    </div>
+	
+	<div ng-repeat="pullRequest in pullRequests | filter:q" class="commit-item listing-item">
+          <h4>{{ pullRequest.title }}</h4>
+          <p>{{ pullRequest.user.login }}</p>
+    </div>
+	</div>
+	
+	<div ng-switch="selected" class="slide-container">
+	<div class="col-md-4 repo-status-count">
+		<a name="issues">Issues</a> 
+        <strong class="count">{{ ::issues.length }}</strong>
+    </div>
+	
+	<div ng-repeat="issue in issues | filter:q" class="commit-item listing-item">
+          <h4>{{ issue.title }}</h4>
+          <p>{{ issue.user.login }}</p>
+    </div>
+	</div>
+
+  <div class="col-md-5">
+    <div class="repo-status row panel">
+      <div class="col-md-4 repo-status-count">
+        <strong class="count">{{ repo.watchers_count }}</strong>
+        Watchers
+      </div>
+      <div class="col-md-4 repo-status-count">
+        <strong class="count">{{ repo.open_issues_count }}</strong>
+        Open Issues
+      </div>
+      <div class="col-md-4 repo-status-count">
+        <strong class="count">{{ repo.forks_count }}</strong>
+        Forks
+      </div>
+    </div>
+    <div ng-controller="CollaboratorsCtrl" class="panel">
+      <div class="row collab-nav">
+        <input type="search" ng-model="q" class="col-md-12 search-input" />
+      </div>
+      <div ng-repeat="collab in collaborators" class="user-avatar-list-item">
+        <img ng-src="{{ collab.avatar_url }}" title="{{ collab.login }}" class="user-avatar" ng-class="getClass(collab, q)" />
+      </div>
+    </div>
+  </div>
+</div>
